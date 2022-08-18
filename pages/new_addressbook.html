@@ -7,7 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/new_addressbook.css">
-    <title>Addressbook</title>
+    <script type="text/javascript" src="../js/AddressBook.js"></script>
+    <script type="text/javascript" src="../js/AddFormValidation.js"></script>
+    <title>Address Book App</title>
 </head>
 <!-- UC 1 -->
 <body>
@@ -23,28 +25,29 @@
     </div>
 <!-- UC 2 -->
 <div class="form-content">
-    <form class="form" action="#">
+    <form class="form" action="#" onsubmit="save(event);" onreset="reset();">
         <div class="form-head">
-            PERSON ADDRESS FORM
-            <span class="close">&times;</span>
+            <span class="form-head-text">PERSON ADDRESS FORM</span>
+            <span class="cross-icon">
+                <span class="close">&times;</span>
+                <ion-icon class="close-circle" name="close-circle"></ion-icon>
+            </span>
         </div>
 <!-- UC 3 -->
-        <div class="row-content">
-            <label for="name" class="label text"></label>
-            <input type="text" class="input" id="name" name="name" placeholder="Annika M Ramos" required>
-            <error-output class="text-error" for="text"></error-output>
-        </div>
 
-        <div class="row-content">
-            <label class="label text" for="Address"></label>
-            <input id="address" name="address" class="input" placeholder="Address" style="height: 100px;" required>
-        </div>
+        <div class="body">
+            <label class="label text" for="name">Full Name</label></br>&nbsp;
+            <input class="input" type="text" id="name" name="name" required>
+            <error-output class="text-error"></error-output>
 
-        <div class="row-content">
-            <label class="label text" for="selectCity"></label>
-            <div>
-                <label class="label text" for="City"></label><br>
-                <select name="city" id="city">
+            <label class="label text" for="address">Address</label></br>&nbsp;
+            <textarea id="address" class="input" name="address" style="height: 100px; "></textarea>
+            <error-output class="address-error"></error-output>
+
+            <div class="row-content">
+                <div class="label-city">
+                    <label class="city" for="city">City</label><br>&nbsp;
+                    <select id="city" name="city">
                     <option value="">Select City</option>
                     <option value="Achalpur">Achalpur</option>
                     <option value="Ahiri">Ahiri</option>
@@ -348,7 +351,10 @@
                     <option value="Yavatmal">Yavatmal</option>
                     <option value="Yeola">Yeola</option>
                 </select>
-                <select name="state" id="state">
+            </div>
+            <div class="label-state">
+                <label class="state" for="state">State</label><br>&nbsp;
+                <select id="state" name="state">
                     <option value="">Select State</option>
                     <option value="AP">Andra Pradesh</option>
                     <option value="AR">Arunachal Pradesh</option>
@@ -388,20 +394,18 @@
                     <option value="LD">Lakshadweep</option>
                     <option value="PY">Puducherry</option>
                 </select>
-                <label class="label text" for="zip-code"></label>
-                <input class="zip-code" type="zip-code" id="zip-code" placeholder="Zip Code" name="zip-code" required>
+            </div>
+            <div class="label-zip">
+                <label class="zip" for="zipcode">Zipcode</label></br>&nbsp;
+                <input class="input" id="zipcode " name="zipcode" placeholder="Zip Code "></input>
             </div>
         </div>
-
-        <div class="row-content">
-            <label class="label text" for="phone"></label>
-            <input class="input" type="phone" id="phone" name="phone" placeholder="Phone Number" required>
-        </div>           
+        
+            <label class="label-text-phone" for="phone">Phone Number</label>
+            <input class="input" type="phone" id="phone" name="phone"  required>
+            <error-output class="phone-error"></error-output>
+                   
 </div>
 
 </body>
 </html>
-
-
-
-
